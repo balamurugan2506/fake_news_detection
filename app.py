@@ -14,15 +14,20 @@ def download_and_extract_model():
         file_id = "1UixNfqG4pVF2QjqcVHqTBNo4zUkb3cAc"
         url = f"https://drive.google.com/uc?id={file_id}"
         output = "fake_news.zip"
+        
+        try:
+            gdown.download(url, output, quiet=False)
+        except Exception as e:
+            st.error(f"❌ Download failed: {e}")
+            return
 
-        gdown.download(url, output, quiet=False)
-
-        if os.path.exists(output):  # ✅ Check before removing
+        if os.path.exists(output):
             with zipfile.ZipFile(output, "r") as zip_ref:
                 zip_ref.extractall(".")
             os.remove(output)
         else:
-            st.error("❌ ZIP file failed to download. Please check the Google Drive file ID or link permissions.")
+            st.error("❌ ZIP file download failed.")
+
 
 
 
