@@ -11,7 +11,7 @@ import zipfile
 
 def download_and_extract_model():
     if not os.path.exists("model"):
-        file_id = "12eYnkKeDOR68zLLMP6pZGnae5Ezkw0GQ"  # ✅ Replace with real ID
+        file_id = "1UixNfqG4pVF2QjqcVHqTBNo4zUkb3cAc"
         url = f"https://drive.google.com/uc?id={file_id}"
         output = "fake_news.zip"
 
