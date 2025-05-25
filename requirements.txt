@@ -1,5 +1,7 @@
+gdown
 streamlit
+torch
+transformers
+sentence-transformers
+numpy
 scikit-learn
-pandas
-nltk
-joblib
