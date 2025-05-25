@@ -1,0 +1,4 @@
+model/model.safetensors filter=lfs diff=lfs merge=lfs -text
+exact_match_dict.pkl filter=lfs diff=lfs merge=lfs -text
+fake_embeddings.npy filter=lfs diff=lfs merge=lfs -text
+real_embeddings.npy filter=lfs diff=lfs merge=lfs -text
