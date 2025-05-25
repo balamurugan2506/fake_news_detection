@@ -146,8 +146,9 @@ st.markdown('<div class="textbox-label"> <h4>✍️ Type or paste the news artic
 # Load files
 @st.cache_resource
 def load_resources():
-    model = BertForSequenceClassification.from_pretrained("model").to("cuda" if torch.cuda.is_available() else "cpu")
-    tokenizer = BertTokenizer.from_pretrained("model")
+    model_path = "model"
+    model = BertForSequenceClassification.from_pretrained(model_path).to("cuda" if torch.cuda.is_available() else "cpu")
+    tokenizer = BertTokenizer.from_pretrained(model_path)
     sbert_model = SentenceTransformer('all-MiniLM-L6-v2')
 
     real_embeddings = np.load("real_embeddings.npy")
