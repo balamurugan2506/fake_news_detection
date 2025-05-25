@@ -6,34 +6,6 @@ import numpy as np
 import pickle
 import os
 import base64
-import gdown
-import zipfile
-
-def download_and_extract_model():
-    if not os.path.exists("model"):
-        file_id = "1UixNfqG4pVF2QjqcVHqTBNo4zUkb3cAc"
-        url = f"https://drive.google.com/uc?id={file_id}"
-        output = "fake_news.zip"
-        
-        try:
-            gdown.download(url, output, quiet=False)
-        except Exception as e:
-            st.error(f"❌ Download failed: {e}")
-            return
-
-        if os.path.exists(output):
-            with zipfile.ZipFile(output, "r") as zip_ref:
-                zip_ref.extractall(".")
-            os.remove(output)
-        else:
-            st.error("❌ ZIP file download failed.")
-
-
-
-
-download_and_extract_model()
-
-# Page config
 st.set_page_config(
     page_title="📰 Fake News Detector",
     layout="centered",
